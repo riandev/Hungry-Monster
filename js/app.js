@@ -14,9 +14,12 @@ const searchbtn = document.getElementById('search').addEventListener('click', fu
                 if (mealDetails === null) {
                     alert('No Meal Found');
                 } else {
+                    const mealItems = document.getElementById('meal-items');
+                    mealItems.innerHTML = '';
                     mealDetails.forEach(mealInfo => {
                         const mealTitle = mealInfo.strMeal;
                         const strMealThumb = mealInfo.strMealThumb;
+                        console.log(mealItems);
                         const mealContainer = document.createElement('div');
                         mealContainer.className = 'items';
                         const details = `
@@ -24,7 +27,6 @@ const searchbtn = document.getElementById('search').addEventListener('click', fu
                     <p>${mealTitle}</p>
                     `;
                         mealContainer.innerHTML = details;
-                        const mealItems = document.getElementById('meal-items');
                         mealItems.appendChild(mealContainer);
 
                         // Ingredients Part
